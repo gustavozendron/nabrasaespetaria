@@ -629,7 +629,7 @@ export default function App() {
 
       {/* Footer */}
       <footer className="bg-[#0F0F0F] text-white pt-16 pb-8 border-t-4 border-[#FF4500] font-sans">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-4 gap-10">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-3 gap-10">
           
           {/* Col 1: About */}
           <div className="space-y-4">
@@ -690,28 +690,7 @@ export default function App() {
             </div>
           </div>
 
-          {/* Col 3: Unidades */}
-          <div className="space-y-4">
-            <h4 className="font-display font-bold text-xs tracking-wider uppercase text-[#FF4500]">
-              Onde Estamos
-            </h4>
-            <div className="space-y-3 text-xs text-white/60 leading-relaxed">
-              <p>
-                <strong className="text-white font-display">Unidade Jardim / Campestre</strong><br />
-                Rua das Figueiras, 1200<br />
-                Bairro Jardim - Santo André - SP<br />
-                CEP: 09080-300
-              </p>
-              <p>
-                <strong className="text-white font-display">Unidade Centro (Apenas Delivery)</strong><br />
-                Av. Dom Pedro II, 450<br />
-                Centro - Santo André - SP<br />
-                CEP: 09080-000
-              </p>
-            </div>
-          </div>
-
-          {/* Col 4: Newsletter */}
+          {/* Col 3: Newsletter */}
           <div className="space-y-4">
             <h4 className="font-display font-bold text-xs tracking-wider uppercase text-[#FF4500]">
               Contato Rápido
