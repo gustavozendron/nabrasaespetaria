@@ -1,10 +1,20 @@
 import { SkewerItem, SauceItem, NeighborhoodDelivery } from './types';
 
+import heroImg from './assets/images/hero_skewers_1782425643750.jpg';
+import sweetImg from './assets/images/sweet_skewers_1782425657862.jpg';
+import veganImg from './assets/images/vegan_skewers_1782425668906.jpg';
+import boiFrangoImg from './assets/images/boinfrango.jpeg';
+import linguicaImg from './assets/images/linguica.jpeg';
+import veganoImg from './assets/images/vegano.jpeg';
+import peixeEmpanadoImg from './assets/images/peixeempanado.jpeg';
+import romeuJulietaImg from './assets/images/romeuejulieta.jpeg';
+import queijoCoalhoImg from './assets/images/queijocoalho.jpeg';
+
 // Image paths from our generated assets
 export const IMAGES = {
-  hero: '/src/assets/images/hero_skewers_1782425643750.jpg',
-  sweet: '/src/assets/images/sweet_skewers_1782425657862.jpg',
-  vegan: '/src/assets/images/vegan_skewers_1782425668906.jpg',
+  hero: heroImg,
+  sweet: sweetImg,
+  vegan: veganImg,
 };
 
 export const SKEWERS: SkewerItem[] = [
@@ -26,7 +36,7 @@ export const SKEWERS: SkewerItem[] = [
     description: 'A combinação perfeita de alcatra bovina e cubos suculentos de peito de frango temperados com ervas finas da casa.',
     category: 'salgado',
     price: 14.00,
-    image: '/src/assets/images/boinfrango.jpeg',
+    image: boiFrangoImg,
     tags: ['O Favorito do ABC', 'Misto'],
     vegetarian: false,
     vegan: false
@@ -37,7 +47,7 @@ export const SKEWERS: SkewerItem[] = [
     description: 'O autêntico queijo coalho dourado por fora, com aquela casquinha crocante irresistível, e derretido por dentro.',
     category: 'salgado',
     price: 12.00,
-    image: '/src/assets/images/queijocoalho.jpeg',
+    image: queijoCoalhoImg,
     tags: ['Cremoso', 'Sucesso'],
     vegetarian: true,
     vegan: false
@@ -48,7 +58,7 @@ export const SKEWERS: SkewerItem[] = [
     description: 'Linguiça toscana tradicional de churrasco, super suculenta, grelhada no fogo forte.',
     category: 'salgado',
     price: 10.00,
-    image: '/src/assets/images/linguica.jpeg',
+    image: linguicaImg,
     tags: ['Tradicional'],
     vegetarian: false,
     vegan: false
@@ -70,7 +80,7 @@ export const SKEWERS: SkewerItem[] = [
     description: 'Combinação harmoniosa de cebola roxa, pimentão vermelho, abobrinha, brócolis e palmito pincelados com ervas finas.',
     category: 'salgado',
     price: 12.00,
-    image: '/src/assets/images/vegano.jpeg',
+    image: veganoImg,
     tags: ['100% Vegano', 'Natural'],
     vegetarian: true,
     vegan: true
@@ -81,7 +91,7 @@ export const SKEWERS: SkewerItem[] = [
     description: 'Cubos de peixe branco selecionados, empanados em farinha panko ultra-crocante, fritos e finalizados na churrasqueira.',
     category: 'salgado',
     price: 15.00,
-    image: '/src/assets/images/peixeempanado.jpeg',
+    image: peixeEmpanadoImg,
     tags: ['Novidade', 'Crocante'],
     vegetarian: false,
     vegan: false
@@ -116,7 +126,7 @@ export const SKEWERS: SkewerItem[] = [
     description: 'Queijo coalho grelhado na churrasqueira até derreter, coberto com uma generosa camada de goiabada cascão artesanal derretida.',
     category: 'doce',
     price: 13.00,
-    image: '/src/assets/images/romeuejulieta.jpeg',
+    image: romeuJulietaImg,
     tags: ['Tradicional', 'Equilíbrio Perfeito'],
     vegetarian: true,
     vegan: false
