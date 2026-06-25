@@ -1,0 +1,6 @@
+{
+  "name": "Na Brasa - Espetaria",
+  "description": "Espetaria Na Brasa - O verdadeiro Sabor Andreense. Deliciosos espetinhos gourmet feitos na brasa com ingredientes selecionados.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

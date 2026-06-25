@@ -1,0 +1,36 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Space Grotesk", sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+  
+  --color-brand-orange-50: #1a1513;
+  --color-brand-orange-500: #FF4500;
+  --color-brand-orange-600: #E03D00;
+  --color-brand-red-500: #D20A11;
+  --color-brand-red-600: #B8080E;
+  --color-brand-charcoal: #0F0F0F;
+  --color-brand-sand: #161616;
+}
+
+/* Custom scrollbar to look sleek like Cabana Burger with Bento style */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #0F0F0F;
+}
+::-webkit-scrollbar-thumb {
+  background: #FF4500;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #D20A11;
+}
+
+html {
+  scroll-behavior: smooth;
+  background-color: #0F0F0F;
+}
