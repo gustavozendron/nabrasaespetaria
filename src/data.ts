@@ -3,12 +3,13 @@ import { SkewerItem, SauceItem, NeighborhoodDelivery } from './types';
 import heroImg from './assets/images/hero_skewers_1782425643750.jpg';
 import sweetImg from './assets/images/sweet_skewers_1782425657862.jpg';
 import veganImg from './assets/images/vegan_skewers_1782425668906.jpg';
-import boiFrangoImg from './assets/images/boinfrango.jpeg';
 import linguicaImg from './assets/images/linguica.jpeg';
-import veganoImg from './assets/images/vegano.jpeg';
 import peixeEmpanadoImg from './assets/images/peixeempanado.jpeg';
-import romeuJulietaImg from './assets/images/romeuejulieta.jpeg';
 import queijoCoalhoImg from './assets/images/queijocoalho.jpeg';
+import medalhaoImg from './assets/images/espeto_medalhao_1790988778173.jpg';
+import coracaoImg from './assets/images/espeto_coracao_1790988787476.jpg';
+import frangoImg from './assets/images/espeto_frango_1790988796350.jpg';
+import kaftaImg from './assets/images/espeto_kafta_1790988806337.jpg';
 
 // Image paths from our generated assets
 export const IMAGES = {
@@ -31,13 +32,46 @@ export const SKEWERS: SkewerItem[] = [
     vegan: false
   },
   {
-    id: 'boi_frango',
-    name: 'Boi n\' Frango',
-    description: 'A combinação perfeita de alcatra bovina e cubos suculentos de peito de frango temperados com ervas finas da casa.',
+    id: 'medalhao',
+    name: 'Medalhão',
+    description: 'Cubos macios de peito de frango selecionados envoltos em fatias douradas e crocantes de bacon defumado na brasa.',
     category: 'salgado',
     price: 14.00,
-    image: boiFrangoImg,
-    tags: ['O Favorito do ABC', 'Misto'],
+    image: medalhaoImg,
+    tags: ['Queridinho', 'Com Bacon'],
+    vegetarian: false,
+    vegan: false
+  },
+  {
+    id: 'coracao_galinha',
+    name: 'Coração de Galinha',
+    description: 'Coraçõezinhos de frango temperados na marinada especial com alho e ervas finas, assados no ponto perfeito, suculentos e dourados.',
+    category: 'salgado',
+    price: 13.00,
+    image: coracaoImg,
+    tags: ['Tradicional', 'Suculento'],
+    vegetarian: false,
+    vegan: false
+  },
+  {
+    id: 'frango',
+    name: 'Frango',
+    description: 'Cubos macios de frango marinados com ervas finas, alho e toque cítrico, grelhados na brasa com casquinha irresistível.',
+    category: 'salgado',
+    price: 11.00,
+    image: frangoImg,
+    tags: ['Leve', 'Grelhado'],
+    vegetarian: false,
+    vegan: false
+  },
+  {
+    id: 'kafta',
+    name: 'Kafta',
+    description: 'Carne moída bovina de primeira temperada artesanalmente com hortelã fresca, cebola roxa e mix árabe de especiarias na brasa.',
+    category: 'salgado',
+    price: 13.00,
+    image: kaftaImg,
+    tags: ['Artesanal', 'Especiarias'],
     vegetarian: false,
     vegan: false
   },
@@ -64,28 +98,6 @@ export const SKEWERS: SkewerItem[] = [
     vegan: false
   },
   {
-    id: 'brocolis_palmito',
-    name: 'Brócolis e Palmito',
-    description: 'Buquês frescos de brócolis grelhados na brasa intercalados com palmito premium pupunha e azeite especial.',
-    category: 'salgado',
-    price: 13.00,
-    image: IMAGES.vegan,
-    tags: ['Saudável', 'Fresco'],
-    vegetarian: true,
-    vegan: true
-  },
-  {
-    id: 'vegano',
-    name: 'Espetinho Vegano',
-    description: 'Combinação harmoniosa de cebola roxa, pimentão vermelho, abobrinha, brócolis e palmito pincelados com ervas finas.',
-    category: 'salgado',
-    price: 12.00,
-    image: veganoImg,
-    tags: ['100% Vegano', 'Natural'],
-    vegetarian: true,
-    vegan: true
-  },
-  {
     id: 'peixe_empanado',
     name: 'Peixe Empanado',
     description: 'Cubos de peixe branco selecionados, empanados em farinha panko ultra-crocante, fritos e finalizados na churrasqueira.',
@@ -106,28 +118,6 @@ export const SKEWERS: SkewerItem[] = [
     price: 14.00,
     image: IMAGES.sweet,
     tags: ['Mais Pedida', 'Fruta Fresca'],
-    vegetarian: true,
-    vegan: false
-  },
-  {
-    id: 'marshmallow_chocolate',
-    name: 'Marshmallow com Chocolate',
-    description: 'Marshmallows fofinhos tostados na brasa, ganhando uma casquinha dourada, cobertos com calda cremosa de chocolate belga.',
-    category: 'doce',
-    price: 11.00,
-    image: IMAGES.sweet,
-    tags: ['Para Adoçar', 'Derretido'],
-    vegetarian: true,
-    vegan: false
-  },
-  {
-    id: 'romeu_julieta',
-    name: 'Romeu e Julieta',
-    description: 'Queijo coalho grelhado na churrasqueira até derreter, coberto com uma generosa camada de goiabada cascão artesanal derretida.',
-    category: 'doce',
-    price: 13.00,
-    image: romeuJulietaImg,
-    tags: ['Tradicional', 'Equilíbrio Perfeito'],
     vegetarian: true,
     vegan: false
   }

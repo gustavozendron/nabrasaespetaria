@@ -117,38 +117,38 @@ export default function App() {
     switch (sauceId) {
       case 'molho_casa':
         return {
-          skewers: ['Carne 100% Bovina', 'Boi n\' Frango', 'Queijo Coalho'],
-          tip: 'O toque defumado do alho assado realça a suculência das carnes vermelhas e cria um contraste perfeito com a casquinha do queijo coalho.',
+          skewers: ['Carne 100% Bovina', 'Medalhão', 'Queijo Coalho'],
+          tip: 'O toque defumado do alho assado realça a suculência das carnes vermelhas e cria um contraste perfeito com a casquinha do bacon do medalhão.',
         };
       case 'barbecue':
         return {
-          skewers: ['Linguiça', 'Carne 100% Bovina'],
-          tip: 'Por ser encorpado e adocicado, o barbecue combina incrivelmente com a gordura saborosa da nossa linguiça artesanal.',
+          skewers: ['Linguiça', 'Kafta', 'Carne 100% Bovina'],
+          tip: 'Por ser encorpado e adocicado, o barbecue combina incrivelmente com a gordura saborosa da nossa linguiça e o tempero marcante da kafta.',
         };
       case 'molho_ranch':
         return {
-          skewers: ['Peixe Empanado', 'Brócolis e Palmito', 'Espetinho Vegano'],
-          tip: 'A acidez sutil e o frescor das ervas do molho Ranch quebram a fritura crocante do peixe e complementam perfeitamente a leveza dos vegetais grelhados.',
+          skewers: ['Frango', 'Peixe Empanado'],
+          tip: 'A acidez sutil e o frescor das ervas do molho Ranch complementam perfeitamente o frango grelhado e o peixe crocante.',
         };
       case 'vinagrete':
         return {
-          skewers: ['Carne 100% Bovina', 'Linguiça', 'Boi n\' Frango'],
-          tip: 'O vinagrete rústico clássico é o acompanhamento de ouro para qualquer espetinho de carne vermelha tradicional brasileira.',
+          skewers: ['Coração de Galinha', 'Carne 100% Bovina', 'Linguiça'],
+          tip: 'O vinagrete rústico clássico é o acompanhamento perfeito para o coração de galinha e o churrasco tradicional na brasa.',
         };
       case 'maionese':
         return {
-          skewers: ['Boi n\' Frango', 'Peixe Empanado', 'Linguiça'],
-          tip: 'A clássica maionese verde batida confere cremosidade e frescor para espetos mistos e peixes.',
+          skewers: ['Frango', 'Peixe Empanado', 'Linguiça'],
+          tip: 'A clássica maionese verde batida confere cremosidade e frescor para carnes de frango, linguiça e peixes.',
         };
       case 'ketchup':
         return {
-          skewers: ['Linguiça', 'Peixe Empanado', 'Marshmallow com Chocolate'],
-          tip: 'Nosso ketchup condimentado é perfeito para quem busca um sabor marcante e rústico em seus espetinhos salgados tradicionais.',
+          skewers: ['Medalhão', 'Linguiça', 'Peixe Empanado'],
+          tip: 'Nosso ketchup condimentado realça o sabor defumado do bacon no medalhão e dos espetinhos na brasa.',
         };
       case 'mostarda':
         return {
-          skewers: ['Linguiça', 'Queijo Coalho', 'Boi n\' Frango'],
-          tip: 'O adocicado do mel silvestre com a picância da mostarda escura cria um dueto divino com carnes suínas bem assadas.',
+          skewers: ['Kafta', 'Linguiça', 'Queijo Coalho'],
+          tip: 'O adocicado do mel silvestre com a picância da mostarda escura cria um dueto divino com kafta, linguiça e queijo coalho assados.',
         };
       default:
         return { skewers: [], tip: '' };
@@ -601,7 +601,7 @@ export default function App() {
                   A <strong>Espetaria Na Brasa</strong> nasceu da paixão genuína pelo churrasco de rua tradicional, mas com uma proposta gourmet inovadora inspirada na cultuada Cabana Burger. Queríamos criar algo que unisse a descontração de um bom espetinho com a máxima qualidade gastronômica.
                 </p>
                 <p>
-                  O nosso lema, <strong>Sabor Andreense</strong>, é uma homenagem direta às nossas raízes no ABC Paulista. Cada ingrediente que compõe nossos espetos é proveniente de produtores selecionados da região de Santo André, garantindo frescor incomparável desde os brócolis e palmitos do espeto vegano até a clássica linguiça de porco artesanal.
+                  O nosso lema, <strong>Sabor Andreense</strong>, é uma homenagem direta às nossas raízes no ABC Paulista. Cada ingrediente que compõe nossos espetos é proveniente de produtores selecionados da região de Santo André, garantindo frescor incomparável desde os cortes nobres até a clássica linguiça de porco artesanal.
                 </p>
                 <p>
                   Não utilizamos churrasqueiras a gás ou elétricas. Aqui, o espetinho toca a grelha sobre brasas quentes de carvão de verdade, defumando lentamente e preservando a suculência original que você só encontra na nossa espetaria.
