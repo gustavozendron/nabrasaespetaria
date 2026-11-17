@@ -4,10 +4,6 @@ import {
   ShoppingBag,
   MapPin,
   Flame,
-  Leaf,
-  Sparkles,
-  Clock,
-  ArrowRight,
   ChefHat,
   Utensils,
   ChevronRight,
@@ -15,23 +11,18 @@ import {
   Check,
   Instagram,
   Smartphone,
-  Plus,
-  Heart,
-  Droplet
+  CupSoda
 } from 'lucide-react';
 
-import { CartItem, SkewerItem } from './types';
-import { SKEWERS, SAUCES, IMAGES } from './data';
+import { CartItem } from './types';
+import { SKEWERS, DRINKS, IMAGES } from './data';
 import Logo from './components/Logo';
 import MenuItemCard from './components/MenuItemCard';
-import SkewerBuilder from './components/SkewerBuilder';
 import CartDrawer from './components/CartDrawer';
 
 export default function App() {
   const [cart, setCart] = useState<CartItem[]>([]);
   const [isCartOpen, setIsCartOpen] = useState<boolean>(false);
-  const [activeCategory, setActiveCategory] = useState<'todos' | 'salgado' | 'doce'>('todos');
-  const [selectedSaucePairing, setSelectedSaucePairing] = useState<string>('molho_casa');
   const [promoToast, setPromoToast] = useState<boolean>(true);
 
   // Load cart from localStorage on init
@@ -58,7 +49,6 @@ export default function App() {
     const existingIndex = cart.findIndex(
       (c) =>
         c.skewer.id === item.skewer.id &&
-        JSON.stringify(c.selectedSauces) === JSON.stringify(item.selectedSauces) &&
         c.customNotes === item.customNotes &&
         c.grillingStyle === item.grillingStyle
     );
@@ -70,11 +60,6 @@ export default function App() {
     } else {
       saveCart([...cart, item]);
     }
-  };
-
-  // Add custom built skewer directly
-  const handleAddCustomSkewer = (customItem: CartItem) => {
-    saveCart([...cart, customItem]);
   };
 
   // Update Item Quantity in Cart
@@ -105,57 +90,6 @@ export default function App() {
   // Calculate total items in cart
   const cartItemCount = cart.reduce((sum, item) => sum + item.quantity, 0);
   const cartTotal = cart.reduce((sum, item) => sum + item.skewer.price * item.quantity, 0);
-
-  // Filter skewers
-  const filteredSkewers = SKEWERS.filter((item) => {
-    if (activeCategory === 'todos') return true;
-    return item.category === activeCategory;
-  });
-
-  // Sauce pairing mapping
-  const getSaucePairings = (sauceId: string) => {
-    switch (sauceId) {
-      case 'molho_casa':
-        return {
-          skewers: ['Carne 100% Bovina', 'Medalhão', 'Queijo Coalho'],
-          tip: 'O toque defumado do alho assado realça a suculência das carnes vermelhas e cria um contraste perfeito com a casquinha do bacon do medalhão.',
-        };
-      case 'barbecue':
-        return {
-          skewers: ['Linguiça', 'Kafta', 'Carne 100% Bovina'],
-          tip: 'Por ser encorpado e adocicado, o barbecue combina incrivelmente com a gordura saborosa da nossa linguiça e o tempero marcante da kafta.',
-        };
-      case 'molho_ranch':
-        return {
-          skewers: ['Frango', 'Peixe Empanado'],
-          tip: 'A acidez sutil e o frescor das ervas do molho Ranch complementam perfeitamente o frango grelhado e o peixe crocante.',
-        };
-      case 'vinagrete':
-        return {
-          skewers: ['Coração de Galinha', 'Carne 100% Bovina', 'Linguiça'],
-          tip: 'O vinagrete rústico clássico é o acompanhamento perfeito para o coração de galinha e o churrasco tradicional na brasa.',
-        };
-      case 'maionese':
-        return {
-          skewers: ['Frango', 'Peixe Empanado', 'Linguiça'],
-          tip: 'A clássica maionese verde batida confere cremosidade e frescor para carnes de frango, linguiça e peixes.',
-        };
-      case 'ketchup':
-        return {
-          skewers: ['Medalhão', 'Linguiça', 'Peixe Empanado'],
-          tip: 'Nosso ketchup condimentado realça o sabor defumado do bacon no medalhão e dos espetinhos na brasa.',
-        };
-      case 'mostarda':
-        return {
-          skewers: ['Kafta', 'Linguiça', 'Queijo Coalho'],
-          tip: 'O adocicado do mel silvestre com a picância da mostarda escura cria um dueto divino com kafta, linguiça e queijo coalho assados.',
-        };
-      default:
-        return { skewers: [], tip: '' };
-    }
-  };
-
-  const activePairing = getSaucePairings(selectedSaucePairing);
 
   return (
     <div className="min-h-screen bg-[#0F0F0F] text-white font-sans antialiased selection:bg-[#FF4500] selection:text-black">
@@ -203,11 +137,8 @@ export default function App() {
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center gap-8 text-xs font-display font-black uppercase tracking-widest text-white/85">
             <a href="#menu-section" className="hover:text-[#FF4500] transition-colors">Cardápio</a>
-            <a href="#builder-section" className="hover:text-[#FF4500] transition-colors flex items-center gap-1 text-[#FF4500]">
-              <Sparkles className="w-3.5 h-3.5 animate-pulse" />
-              Monte seu Espeto
-            </a>
-            <a href="#sauces-section" className="hover:text-[#FF4500] transition-colors">Nossos Molhos</a>
+            <a href="#drinks-section" className="hover:text-[#FF4500] transition-colors">Bebidas</a>
+            <a href="#about-section" className="hover:text-[#FF4500] transition-colors">Nossa História</a>
           </nav>
 
           {/* Header Actions */}
@@ -258,7 +189,7 @@ export default function App() {
                 </h1>
 
                 <p className="text-white/70 text-sm sm:text-base leading-relaxed font-sans">
-                  De Santo André para o seu paladar, oferecemos os espetinhos gourmet mais suculentos do ABC paulista. Carnes 100% selecionadas, queijos especiais, opções veganas irresistíveis e sobremesas deliciosas grelhadas lentamente no calor forte da brasa.
+                  De Santo André para o seu paladar, oferecemos os espetinhos gourmet mais suculentos do ABC paulista. Carnes 100% selecionadas, queijos especiais e cortes artesanais grelhados lentamente no calor forte da brasa.
                 </p>
               </div>
 
@@ -272,11 +203,11 @@ export default function App() {
                   Ver Nosso Cardápio
                 </a>
                 <a
-                  href="#builder-section"
+                  href="#drinks-section"
                   className="px-8 py-4 bg-black text-white hover:bg-[#FF4500] hover:text-black font-display font-black text-xs tracking-wider uppercase rounded-2xl flex items-center justify-center gap-2 border border-white/10 transition-all hover:scale-[1.02]"
                 >
-                  <Sparkles className="w-4 h-4 text-[#FF4500] hover:text-black" />
-                  Monte Seu Espeto
+                  <CupSoda className="w-4 h-4 text-[#FF4500]" />
+                  Bebidas Geladas
                 </a>
               </div>
 
@@ -287,8 +218,8 @@ export default function App() {
                   <span className="text-[10px] text-white/50 uppercase font-mono font-bold">Artesanal</span>
                 </div>
                 <div>
-                  <span className="block font-display font-black text-2xl text-[#FF4500]">7</span>
-                  <span className="text-[10px] text-white/50 uppercase font-mono font-bold">Molhos Grátis</span>
+                  <span className="block font-display font-black text-2xl text-[#FF4500]">Brasa</span>
+                  <span className="text-[10px] text-white/50 uppercase font-mono font-bold">Carvão Real</span>
                 </div>
                 <div>
                   <span className="block font-display font-black text-2xl text-[#FF4500]">10 Bairros</span>
@@ -346,11 +277,11 @@ export default function App() {
           </div>
           <div className="flex items-center gap-2">
             <Check className="w-4 h-4 text-[#FF4500]" />
-            <span>Opções 100% Veganas & Vegetarianas</span>
+            <span>Cortes Nobres e Artesanais</span>
           </div>
           <div className="flex items-center gap-2">
             <Check className="w-4 h-4 text-[#FF4500]" />
-            <span>Molhos Artesanais Feitos no Dia</span>
+            <span>Bebidas Trincando de Geladas</span>
           </div>
         </div>
       </section>
@@ -368,40 +299,13 @@ export default function App() {
           </h2>
           <div className="w-20 h-1.5 bg-[#FF4500] mx-auto rounded-full" />
           <p className="text-white/60 text-xs sm:text-sm max-w-xl mx-auto pt-2">
-            Clique no espetinho desejado, selecione seu molho gratuito predileto e adicione-o diretamente ao seu pedido via WhatsApp.
+            Escolha os seus espetinhos favoritos na brasa, adicione observações de preparo se desejar e envie seu pedido direto pelo WhatsApp.
           </p>
         </div>
 
-        {/* Tab Filters */}
-        <div className="flex justify-center mb-10">
-          <div className="bg-[#1A1A1A] border-2 border-white/10 p-1.5 rounded-2xl flex gap-1 shadow-sm">
-            {[
-              { id: 'todos', label: 'Todos', icon: Utensils },
-              { id: 'salgado', label: 'Espetos Salgados', icon: Flame },
-              { id: 'doce', label: 'Espetos Doces', icon: Star },
-            ].map((tab) => {
-              const Icon = tab.icon;
-              return (
-                <button
-                  key={tab.id}
-                  onClick={() => setActiveCategory(tab.id as any)}
-                  className={`py-2.5 px-4 sm:px-6 rounded-xl font-display font-bold text-xs uppercase tracking-wider transition-all flex items-center gap-2 cursor-pointer ${
-                    activeCategory === tab.id
-                      ? 'bg-[#FF4500] text-black font-black'
-                      : 'text-white/70 hover:text-[#FF4500] hover:bg-white/5'
-                  }`}
-                >
-                  <Icon className="w-4 h-4" />
-                  <span>{tab.label}</span>
-                </button>
-              );
-            })}
-          </div>
-        </div>
-
         {/* Menu Cards Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6.5">
-          {filteredSkewers.map((item) => (
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6.5">
+          {SKEWERS.map((item) => (
             <MenuItemCard
               key={item.id}
               item={item}
@@ -411,124 +315,29 @@ export default function App() {
         </div>
       </section>
 
-      {/* Interactive Skewer Builder Section (Monte Seu Espeto) */}
-      <section id="builder-section" className="bg-[#0F0F0F] border-y border-white/10 py-16 md:py-24">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <SkewerBuilder onAddCustomSkewer={handleAddCustomSkewer} />
+      {/* Drinks Section (Bebidas Geladas) */}
+      <section id="drinks-section" className="pb-16 md:pb-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="text-center space-y-3 mb-12">
+          <span className="text-xs text-[#FF4500] font-mono font-bold tracking-widest uppercase">
+            Para Acompanhar o Churrasco
+          </span>
+          <h2 className="font-display font-black text-4xl md:text-5xl uppercase tracking-tight text-white">
+            Bebidas Geladas
+          </h2>
+          <div className="w-20 h-1.5 bg-[#FF4500] mx-auto rounded-full" />
+          <p className="text-white/60 text-xs sm:text-sm max-w-xl mx-auto pt-2">
+            Complete o seu pedido com nossas bebidas selecionadas entregues bem geladas junto com seus espetos.
+          </p>
         </div>
-      </section>
 
-      {/* Interactive Dipping Sauces Spotlight (Nossos Molhos) */}
-      <section id="sauces-section" className="py-16 md:py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-          
-          {/* Sauce Left Column: Title and interactive selector */}
-          <div className="lg:col-span-5 space-y-5">
-            <span className="text-xs text-[#FF4500] font-mono font-bold tracking-widest uppercase">
-              Acompanhamentos Grátis
-            </span>
-            <h2 className="font-display font-black text-4xl uppercase tracking-tight text-white">
-              Os Molhos da Casa
-            </h2>
-            <p className="text-white/70 text-xs sm:text-sm leading-relaxed">
-              Cada espeto do Na Brasa dá direito a um molho especial inteiramente grátis para acompanhar. Nossos molhos são batidos artesanalmente todos os dias com temperos frescos locais.
-            </p>
-
-            <div className="space-y-2.5 pt-3">
-              <label className="text-[10px] font-bold text-white/50 uppercase tracking-widest block mb-1">
-                Selecione um molho para ver a harmonização ideal:
-              </label>
-              
-              <div className="flex flex-wrap gap-2">
-                {SAUCES.map((sauce) => (
-                  <button
-                    key={sauce.id}
-                    onClick={() => setSelectedSaucePairing(sauce.id)}
-                    className={`py-2 px-3 text-xs font-bold rounded-xl border transition-all cursor-pointer ${
-                      selectedSaucePairing === sauce.id
-                        ? 'bg-[#FF4500] text-black border-[#FF4500] shadow-sm'
-                        : 'bg-[#1A1A1A] text-white/80 border-white/10 hover:bg-white/5'
-                    }`}
-                  >
-                    {sauce.name}
-                  </button>
-                ))}
-              </div>
-            </div>
-          </div>
-
-          {/* Sauce Right Column: Interactive display pairing */}
-          <div className="lg:col-span-7 bg-[#1A1A1A] rounded-3xl p-6 md:p-8 border-2 border-white/10 shadow-xl relative overflow-hidden">
-            {/* Visual background gradient circle reflecting selected sauce */}
-            <div className="absolute -top-10 -right-10 w-40 h-40 bg-[#FF4500]/5 rounded-full blur-2xl" />
-
-            {SAUCES.map((sauce) => {
-              if (sauce.id !== selectedSaucePairing) return null;
-              return (
-                <motion.div
-                  key={sauce.id}
-                  initial={{ opacity: 0, x: 20 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ duration: 0.3 }}
-                  className="space-y-6"
-                >
-                  <div className="flex items-center gap-4">
-                    {/* Decorative sauce bowl avatar */}
-                    <div className={`w-14 h-14 rounded-2xl bg-gradient-to-br ${sauce.accentColor} flex items-center justify-center text-white text-2xl shadow-md shrink-0`}>
-                      <Droplet className="w-7 h-7 drop-shadow-md animate-bounce" />
-                    </div>
-                    <div>
-                      <h3 className="font-display font-black text-xl text-white uppercase tracking-tight">
-                        {sauce.name}
-                      </h3>
-                      <p className="text-white/60 text-xs italic">
-                        "Preparo rústico diário"
-                      </p>
-                    </div>
-                  </div>
-
-                  <div className="space-y-2 bg-black rounded-2xl p-4 border border-white/10">
-                    <span className="text-[10px] font-mono font-bold text-[#FF4500] uppercase tracking-widest">
-                      O Que é:
-                    </span>
-                    <p className="text-white/80 text-xs leading-relaxed">
-                      {sauce.description}
-                    </p>
-                  </div>
-
-                  {/* Smart pairings list */}
-                  <div className="space-y-3">
-                    <span className="text-[10px] font-mono font-bold text-white/50 uppercase tracking-widest block">
-                      🔥 Harmoniza Perfeitamente Com:
-                    </span>
-                    <div className="flex flex-wrap gap-2">
-                      {activePairing.skewers.map((sk) => {
-                        const matchingItem = SKEWERS.find((s) => s.name === sk);
-                        return (
-                          <div
-                            key={sk}
-                            className="bg-black border border-white/10 py-1.5 px-3 rounded-xl flex items-center gap-2 text-xs font-bold text-white shadow-xs"
-                          >
-                            <span className="text-[#FF4500]">🍡</span>
-                            <span>{sk}</span>
-                          </div>
-                        );
-                      })}
-                    </div>
-                  </div>
-
-                  {/* Sommelier Tip */}
-                  <div className="bg-[#FF4500]/10 border border-[#FF4500]/30 rounded-2xl p-4 text-xs text-white/90 leading-relaxed">
-                    <span className="font-bold block text-[10px] uppercase font-mono tracking-wider text-[#FF4500] mb-1">
-                      💡 Dica do Assador Andreense:
-                    </span>
-                    {activePairing.tip}
-                  </div>
-                </motion.div>
-              );
-            })}
-          </div>
-
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6.5">
+          {DRINKS.map((drink) => (
+            <MenuItemCard
+              key={drink.id}
+              item={drink}
+              onAddToCart={handleAddToCart}
+            />
+          ))}
         </div>
       </section>
 
@@ -545,16 +354,16 @@ export default function App() {
                 <div className="space-y-4">
                   <div className="rounded-3xl overflow-hidden aspect-square border border-white/10 shadow-md">
                     <img
-                      src={IMAGES.vegan}
-                      alt="Legumes na Grelha"
+                      src={IMAGES.picanha}
+                      alt="Espeto de Picanha na Brasa"
                       className="w-full h-full object-cover"
                       referrerPolicy="no-referrer"
                     />
                   </div>
                   <div className="rounded-3xl overflow-hidden aspect-square border border-white/10 shadow-md transform rotate-[-2deg]">
                     <img
-                      src={IMAGES.sweet}
-                      alt="Espeto Frutas com Chocolate"
+                      src={IMAGES.alcatra}
+                      alt="Espeto de Alcatra na Brasa"
                       className="w-full h-full object-cover"
                       referrerPolicy="no-referrer"
                     />

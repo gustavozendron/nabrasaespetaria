@@ -63,10 +63,6 @@ export default function CartDrawer({
         }
       }
       
-      if (item.selectedSauces && item.selectedSauces.length > 0 && item.selectedSauces[0] !== 'Sem Molho') {
-        message += `   _Molho:_ ${item.selectedSauces.join(', ')}\n`;
-      }
-      
       if (item.customNotes) {
         message += `   _Obs:_ ${item.customNotes}\n`;
       }
@@ -139,7 +135,7 @@ export default function CartDrawer({
                 <div>
                   <h3 className="font-display font-extrabold text-lg uppercase tracking-tight">Seu Carrinho</h3>
                   <p className="text-[10px] text-white/60 font-mono">
-                    {cartItems.length} {cartItems.length === 1 ? 'espeto selecionado' : 'espetos selecionados'}
+                    {cartItems.length} {cartItems.length === 1 ? 'item selecionado' : 'itens selecionados'}
                   </p>
                 </div>
               </div>
@@ -160,7 +156,7 @@ export default function CartDrawer({
                   </div>
                   <h4 className="font-display font-bold text-lg text-white">Seu carrinho está vazio</h4>
                   <p className="text-white/60 text-xs max-w-xs mt-1">
-                    Navegue pelas nossas opções de espetos salgados e doces e monte seu pedido perfeito!
+                    Navegue pelo nosso cardápio de espetos na brasa e monte seu pedido perfeito!
                   </p>
                   <button
                     onClick={onClose}
@@ -208,17 +204,11 @@ export default function CartDrawer({
                               </span>
                             </div>
 
-                            {/* Options details (sauces, custom ingredients, point) */}
+                            {/* Options details (custom ingredients, point) */}
                             {item.isCustomSkewer && item.customIngredients && (
                               <p className="text-[10px] text-[#FF4500] font-bold mt-0.5 leading-relaxed">
                                 {item.customIngredients.join(' • ')} 
                                 {item.grillingStyle && ` (${item.grillingStyle})`}
-                              </p>
-                            )}
-
-                            {item.selectedSauces && item.selectedSauces.length > 0 && item.selectedSauces[0] !== 'Sem Molho' && (
-                              <p className="text-[10px] text-white/60 mt-0.5">
-                                <span className="font-semibold text-white/80">Molho:</span> {item.selectedSauces.join(', ')}
                               </p>
                             )}
 

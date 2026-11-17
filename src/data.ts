@@ -1,44 +1,33 @@
-import { SkewerItem, SauceItem, NeighborhoodDelivery } from './types';
+import { SkewerItem, NeighborhoodDelivery } from './types';
 
 import heroImg from './assets/images/hero_skewers_1782425643750.jpg';
-import sweetImg from './assets/images/sweet_skewers_1782425657862.jpg';
-import veganImg from './assets/images/vegan_skewers_1782425668906.jpg';
 import linguicaImg from './assets/images/linguica.jpeg';
-import peixeEmpanadoImg from './assets/images/peixeempanado.jpeg';
 import queijoCoalhoImg from './assets/images/queijocoalho.jpeg';
-import medalhaoImg from './assets/images/espeto_medalhao_1790988778173.jpg';
 import coracaoImg from './assets/images/espeto_coracao_1790988787476.jpg';
 import frangoImg from './assets/images/espeto_frango_1790988796350.jpg';
-import kaftaImg from './assets/images/espeto_kafta_1790988806337.jpg';
+import picanhaImg from './assets/images/espeto_picanha_1794957241051.jpg';
+import alcatraImg from './assets/images/espeto_alcatra_1794957241555.jpg';
+import aguaImg from './assets/images/bebida_agua_1794957392176.jpg';
+import aguaGasImg from './assets/images/bebida_agua_gas_1794957391991.jpg';
+import cocaColaImg from './assets/images/bebida_coca_cola_1794957392206.jpg';
 
 // Image paths from our generated assets
 export const IMAGES = {
   hero: heroImg,
-  sweet: sweetImg,
-  vegan: veganImg,
+  picanha: picanhaImg,
+  alcatra: alcatraImg,
 };
 
 export const SKEWERS: SkewerItem[] = [
   // SALGADOS
   {
-    id: 'carne_bovina',
-    name: 'Carne 100% Bovina',
-    description: 'Cubos nobres de alcatra bovina temperados com sal grosso tradicional e grelhados lentamente na brasa quente.',
+    id: 'picanha',
+    name: 'Picanha',
+    description: 'Fatias nobres de picanha selecionada com capa de gordura dourada na brasa e temperada no ponto certo com sal grosso.',
     category: 'salgado',
-    price: 15.00,
-    image: IMAGES.hero,
-    tags: ['Mais Vendido', 'Clássico'],
-    vegetarian: false,
-    vegan: false
-  },
-  {
-    id: 'medalhao',
-    name: 'Medalhão',
-    description: 'Cubos macios de peito de frango selecionados envoltos em fatias douradas e crocantes de bacon defumado na brasa.',
-    category: 'salgado',
-    price: 14.00,
-    image: medalhaoImg,
-    tags: ['Queridinho', 'Com Bacon'],
+    price: 18.00,
+    image: picanhaImg,
+    tags: ['Mais Vendido', 'Corte Nobre'],
     vegetarian: false,
     vegan: false
   },
@@ -47,7 +36,7 @@ export const SKEWERS: SkewerItem[] = [
     name: 'Coração de Galinha',
     description: 'Coraçõezinhos de frango temperados na marinada especial com alho e ervas finas, assados no ponto perfeito, suculentos e dourados.',
     category: 'salgado',
-    price: 13.00,
+    price: 12.00,
     image: coracaoImg,
     tags: ['Tradicional', 'Suculento'],
     vegetarian: false,
@@ -58,20 +47,20 @@ export const SKEWERS: SkewerItem[] = [
     name: 'Frango',
     description: 'Cubos macios de frango marinados com ervas finas, alho e toque cítrico, grelhados na brasa com casquinha irresistível.',
     category: 'salgado',
-    price: 11.00,
+    price: 12.00,
     image: frangoImg,
     tags: ['Leve', 'Grelhado'],
     vegetarian: false,
     vegan: false
   },
   {
-    id: 'kafta',
-    name: 'Kafta',
-    description: 'Carne moída bovina de primeira temperada artesanalmente com hortelã fresca, cebola roxa e mix árabe de especiarias na brasa.',
+    id: 'alcatra',
+    name: 'Alcatra',
+    description: 'Cubos macios e suculentos de alcatra bovina selecionada, temperados com sal grosso tradicional e assados na brasa quente.',
     category: 'salgado',
     price: 13.00,
-    image: kaftaImg,
-    tags: ['Artesanal', 'Especiarias'],
+    image: alcatraImg,
+    tags: ['Tradicional', 'Suculento'],
     vegetarian: false,
     vegan: false
   },
@@ -80,7 +69,7 @@ export const SKEWERS: SkewerItem[] = [
     name: 'Queijo Coalho',
     description: 'O autêntico queijo coalho dourado por fora, com aquela casquinha crocante irresistível, e derretido por dentro.',
     category: 'salgado',
-    price: 12.00,
+    price: 18.00,
     image: queijoCoalhoImg,
     tags: ['Cremoso', 'Sucesso'],
     vegetarian: true,
@@ -91,81 +80,42 @@ export const SKEWERS: SkewerItem[] = [
     name: 'Linguiça',
     description: 'Linguiça toscana tradicional de churrasco, super suculenta, grelhada no fogo forte.',
     category: 'salgado',
-    price: 10.00,
+    price: 12.00,
     image: linguicaImg,
     tags: ['Tradicional'],
     vegetarian: false,
     vegan: false
-  },
-  {
-    id: 'peixe_empanado',
-    name: 'Peixe Empanado',
-    description: 'Cubos de peixe branco selecionados, empanados em farinha panko ultra-crocante, fritos e finalizados na churrasqueira.',
-    category: 'salgado',
-    price: 15.00,
-    image: peixeEmpanadoImg,
-    tags: ['Novidade', 'Crocante'],
-    vegetarian: false,
-    vegan: false
-  },
-
-  // DOCES
-  {
-    id: 'frutas_chocolate',
-    name: 'Frutas com Chocolate',
-    description: 'Combinação irresistível de morango fresco, uva sem semente, manga e banana fatiada, cobertos com calda de chocolate premium.',
-    category: 'doce',
-    price: 14.00,
-    image: IMAGES.sweet,
-    tags: ['Mais Pedida', 'Fruta Fresca'],
-    vegetarian: true,
-    vegan: false
   }
 ];
 
-export const SAUCES: SauceItem[] = [
+export const DRINKS: SkewerItem[] = [
   {
-    id: 'molho_casa',
-    name: 'Molho da Casa',
-    description: 'Nossa receita secreta de maionese artesanal defumada com alho assado na brasa e ervas aromáticas.',
-    accentColor: 'from-orange-500 to-amber-600'
+    id: 'agua',
+    name: 'Água',
+    description: 'Água mineral sem gás bem gelada (500ml) para refrescar e acompanhar seu churrasco.',
+    category: 'bebida',
+    price: 4.00,
+    image: aguaImg,
+    tags: ['Gelada', '500ml'],
   },
   {
-    id: 'barbecue',
-    name: 'Barbecue Defumado',
-    description: 'Molho barbecue encorpado, cozido lentamente com notas de fumaça líquida e melaço de cana.',
-    accentColor: 'from-red-800 to-red-950'
+    id: 'agua_gas',
+    name: 'Água com Gás',
+    description: 'Água mineral com gás refrescante e bem gelada, ideal para limpar o paladar entre os espetos.',
+    category: 'bebida',
+    price: 5.00,
+    image: aguaGasImg,
+    tags: ['Refrescante', 'Com Gás'],
   },
   {
-    id: 'molho_ranch',
-    name: 'Molho Ranch',
-    description: 'Molho cremoso à base de buttermilk, creme azedo, alho e um mix refrescante de cebolete e salsinha.',
-    accentColor: 'from-sky-100 to-sky-300'
+    id: 'coca_cola',
+    name: 'Coca-Cola',
+    description: 'Coca-Cola lata 350ml trincando de gelada, a combinação clássica para qualquer espetinho na brasa.',
+    category: 'bebida',
+    price: 6.00,
+    image: cocaColaImg,
+    tags: ['Gelada', 'Lata 350ml'],
   },
-  {
-    id: 'vinagrete',
-    name: 'Vinagrete de Boteco',
-    description: 'Tomate fresco, cebola roxa e pimentões cortados bem fininhos, curtidos no azeite extra virgem e vinagre de vinho.',
-    accentColor: 'from-green-500 to-emerald-600'
-  },
-  {
-    id: 'maionese',
-    name: 'Maionese Verde',
-    description: 'Maionese batida na hora com ovos pasteurizados, azeite, salsinha, cebolinha e um toque de limão cravo.',
-    accentColor: 'from-green-400 to-lime-500'
-  },
-  {
-    id: 'ketchup',
-    name: 'Ketchup Premium',
-    description: 'Ketchup rústico artesanal condimentado com especiarias, canela e cravo, perfeito para destacar o grelhado.',
-    accentColor: 'from-red-500 to-red-700'
-  },
-  {
-    id: 'mostarda',
-    name: 'Mostarda e Mel',
-    description: 'Mostarda amarela escura misturada com mel silvestre orgânico e sementes de mostarda moídas.',
-    accentColor: 'from-yellow-400 to-amber-500'
-  }
 ];
 
 export const NEIGHBORHOODS: NeighborhoodDelivery[] = [
